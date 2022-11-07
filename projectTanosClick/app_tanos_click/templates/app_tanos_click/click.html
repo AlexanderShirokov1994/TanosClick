@@ -1,0 +1,18 @@
+{% extends 'base.html'  %}
+
+{% block content %}
+    {% if death is None %}
+        <div class="submit-btn mt-2 mb-2">
+            <form action="{% url 'click' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary active">Я погиб?</button>
+            </form>
+        </div>
+    {% else %}
+        <div class="submit-btn mt-2 mb-2">
+            <button type="button" class="btn btn-primary active">
+                <a class="nav-link" href="{% url 'click' %}">Отмотать время вспять!</a>
+            </button>
+        </div>
+    {% endif %}
+{% endblock %}
